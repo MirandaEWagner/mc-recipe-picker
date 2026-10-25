@@ -8,7 +8,7 @@ A warm, minimal dinner picker made from M&C's favorite recipes. Press **Choose R
 
 The initial import contains 1,513 recipe entries across 13 tabs. Global and Meal Prep had no usable title/link pairs. Fifty named rows without valid web links were skipped. Existing recipe websites may require subscriptions or may have changed since the workbook was created.
 
-Every draw samples three tabs uniformly without replacement, then one recipe uniformly within each chosen tab. Recipes may recur on later clicks. No category or diet filtering is applied.
+With All cuisines selected, every draw samples three tabs uniformly without replacement, then one recipe within each chosen tab. The dropdown lets you choose up to three spreadsheet categories. One selection gives three different recipes from that tab; two selections include both tabs with a random third recipe; three selections give one recipe per tab. Recipes may recur on later clicks. No diet filtering is applied.
 
 ## Update the recipes
 

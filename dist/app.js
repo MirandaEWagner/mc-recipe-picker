@@ -3,6 +3,36 @@ const button = document.querySelector('#choose');
 const cards = document.querySelector('#cards');
 const status = document.querySelector('#status');
 let groups;
+const dropdown = document.querySelector('#cuisine-dropdown');
+const options = document.querySelector('#cuisine-options');
+const summary = document.querySelector('#cuisine-summary');
+const selected = new Set();
+function updateSelection() {
+  summary.textContent = selected.size ? [...selected].map(name => name.toLowerCase()).join(', ') : 'All cuisines';
+  options.querySelectorAll('input').forEach(input => {
+    input.disabled = selected.size === 3 && !input.checked;
+  });
+}
+options.addEventListener('change', event => {
+  const input = event.target;
+  if (input.checked) selected.add(input.value);
+  else selected.delete(input.value);
+  updateSelection();
+});
+document.querySelector('#clear-cuisines').addEventListener('click', () => {
+  selected.clear();
+  options.querySelectorAll('input').forEach(input => { input.checked = false; });
+  updateSelection();
+});
+document.addEventListener('click', event => {
+  if (!dropdown.contains(event.target)) dropdown.open = false;
+});
+dropdown.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    dropdown.open = false;
+    dropdown.querySelector('summary').focus();
+  }
+});
 
 function render(recipes) {
   cards.replaceChildren(...recipes.map((recipe, i) => {
@@ -27,8 +57,9 @@ function render(recipes) {
 }
 
 button.addEventListener('click', () => {
-  render(chooseRecipes(groups));
-  status.textContent = 'Three fresh ideas, each from a different tab.';
+  dropdown.open = false;
+  render(chooseRecipes(groups, Math.random, [...selected]));
+  status.textContent = selected.size ? 'Three fresh ideas from your selected cuisines.' : 'Three fresh ideas, each from a different tab.';
 });
 
 async function load() {
@@ -37,6 +68,13 @@ async function load() {
     if (!response.ok) throw new Error('Could not load recipes');
     groups = await response.json();
     if (groups.filter(g => g.recipes.length).length < 3) throw new Error('Not enough recipe tabs');
+    groups.forEach(group => {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.type = 'checkbox'; input.value = group.name;
+      const text = document.createElement('span'); text.textContent = group.name.toLowerCase();
+      label.append(input, text); options.append(label);
+    });
     button.disabled = false;
     status.textContent = 'A little variety. A lot less deciding.';
   } catch {
