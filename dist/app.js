@@ -1,4 +1,4 @@
-import { chooseRecipes } from './picker.js';
+import { chooseRecipes } from './picker.js?v=3';
 const button = document.querySelector('#choose');
 const cards = document.querySelector('#cards');
 const status = document.querySelector('#status');
