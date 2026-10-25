@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3eb">
+  <meta name="description" content="A little help choosing dinner. Three random recipes from M&C’s favorite recipe collection.">
+  <title>What's for dinner? · M&C</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23a44d35'/%3E%3Ctext x='32' y='44' font-size='40' text-anchor='middle' fill='%23fff9ed'%3Em%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <header><a class="brand" href="./" aria-label="M and C home">m<span>&</span>c<span class="brand-note">THE RECIPE COLLECTION</span></a><span class="header-note">Good food. Easy decisions.</span></header>
+  <main>
+    <section class="intro" aria-labelledby="heading">
+      <div class="eyebrow"><span></span> A LITTLE DINNER INSPIRATION</div>
+      <h1 id="heading">What's for <em>dinner?</em></h1>
+      <p>Your favorites, with a little surprise.<br>Let’s find something good to cook.</p>
+      <button id="choose" disabled><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h3c5 0 7 12 12 12h3M17 14l4 4-4 4M3 18h3c2 0 4-3 6-6s4-6 6-6h3M17 2l4 4-4 4"/></svg>Choose Recipes</button>
+      <p id="status" class="status" role="status" aria-live="polite">Opening your cookbook…</p>
+    </section>
+    <section id="cards" class="cards" aria-label="Your three recipe options" aria-live="polite">
+      <article class="card empty"><div class="card-top"><span>A LITTLE INSPIRATION</span><span class="number">01</span></div><div class="placeholder"><span class="plate">✳</span><h2>Something delicious<br>is waiting.</h2></div><span class="empty-bottom">YOUR FIRST IDEA</span></article>
+      <article class="card empty"><div class="card-top"><span>A DIFFERENT FLAVOR</span><span class="number">02</span></div><div class="placeholder"><span class="plate">✳</span><h2>A new possibility<br>for tonight.</h2></div><span class="empty-bottom">YOUR SECOND IDEA</span></article>
+      <article class="card empty"><div class="card-top"><span>ONE MORE POSSIBILITY</span><span class="number">03</span></div><div class="placeholder"><span class="plate">✳</span><h2>Maybe your next<br>favorite.</h2></div><span class="empty-bottom">YOUR THIRD IDEA</span></article>
+    </section>
+    <p class="below">Three recipes. Three different tabs. Something to look forward to.</p>
+  </main>
+  <footer><span>From our kitchen, with love.</span><span>M&C’S FAVORITES</span></footer>
+</body>
+</html>
