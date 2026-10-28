@@ -64,7 +64,7 @@ button.addEventListener('click', () => {
 
 async function load() {
   try {
-    const response = await fetch('./recipes.json');
+    const response = await fetch('./recipes.json', { cache: 'no-store' });
     if (!response.ok) throw new Error('Could not load recipes');
     groups = await response.json();
     if (groups.filter(g => g.recipes.length).length < 3) throw new Error('Not enough recipe tabs');

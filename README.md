@@ -6,7 +6,7 @@ A warm, minimal dinner picker made from M&C's favorite recipes. Press **Choose R
 
 `dist/recipes.json` is a snapshot imported from the supplied workbook, using titles from Column A and links from Column B of the same row. Embedded Excel hyperlinks take priority over displayed labels. Only titles, links and tab names are included; notes, ratings and other spreadsheet columns are omitted.
 
-The initial import contains 1,513 recipe entries across 13 tabs. Global and Meal Prep had no usable title/link pairs. Fifty named rows without valid web links were skipped. Existing recipe websites may require subscriptions or may have changed since the workbook was created.
+The October 28, 2026 import contains 1,517 recipe entries across 13 tabs. Global and Meal Prep had no usable title/link pairs. Fifty named rows without valid web links were skipped. Existing recipe websites may require subscriptions or may have changed since the workbook was created.
 
 With All cuisines selected, every draw samples three tabs uniformly without replacement, then one recipe within each chosen tab. The dropdown lets you choose up to three spreadsheet categories. One selection gives three different recipes from that tab; two selections include both tabs with a random third recipe; three selections give one recipe per tab. Recipes may recur on later clicks. No diet filtering is applied.
 
